@@ -1,0 +1,426 @@
+--------------------------------------------------------------
+-----------Result for running dominion unit tests------------
+--------------------------------------------------------------\n
+--------------------
+unittest1.c
+--------------------
+----------------Testing Function: councilRoomCardEffect()----------------
+ 
+Testing that Player draws 4 cards: 
+Player hand count = 8, expected = 8
+Test Passed
+
+Testing that player gains 1 buy
+Number of buys = 2, expected = 2
+Test Passed
+
+Testing that each opponent drew a card
+opponent 1: hand count = 1, expected = 1
+deck/discard pile count = 9, expected = 9
+Test Passed
+
+ ----- SUCCESS: Testing complete councilRoomCardEffect() ------
+
+
+
+--------------------
+unittest2.c
+--------------------
+----------------Testing Function: mineCardEffect()----------------
+ 
+Testing for if Player trashes a copper and gains a silver: 
+Gained card = 4, expected = 5, Hand count = 5, expected = 4
+Test Falure: Error in trashing a copper for a silver
+
+Testing for if Player trashes a silver and gains a gold: 
+Gained card = 4, expected = 6, Hand count = 5, expected = 4
+Test Falure: Error in trashing a copper for a silver
+
+Test if a player trashes a copper and attempts to gain a gold
+Test Passed: Player cannot gain a gold from trashing a copper
+
+-----Testing completed for mineCardEffect(). Not all tests passed
+
+
+--------------------
+unittest3.c
+--------------------
+----------------Testing Function: baronCardEffect()----------------
+ 
+Testing for if Player discards an estate: 
+Player coin count = 8, expected = 8, player hand count = 4, expected = 4
+ Player num buys = 1, expected = 2
+Test Falure: Incorrect number of buys
+
+---Testing if player does not discard an estate ---
+Player coin count = 4, expected = 4, player hand count = 5, expected = 5
+Player num buys = 1, expected = 2
+Test Falure: Incorrect number of buys
+
+---Testing that estate card was discarded
+Discard pile count = 1, expected = 1
+Test Passed
+
+
+-----Testing completed for baronCardEffect(). Not all tests passed
+
+
+--------------------
+unittest4.c
+--------------------
+----------------Testing Function: smithyCardEffect()----------------
+ 
+Testing that player draws 3 cards into their hand: 
+Player cards = 8, expected = 7
+Player deck = 1, expected = 2
+Test Falure: player did not draw three cards into their hand from their deck
+
+ ----- SUCCESS: Testing complete smithyCardEffect() ------
+
+
+
+--------------------
+cardtest1.c: 
+--------------------
+----------------Testing Card: smithy----------------
+ 
+Testing that Player draws 3 cards. 
+hand count = 8, expected = 7
+deck count = 1, expected = 2
+coin count = 4, expected = 4
+
+---Checking that no game state change occured for all 1 opponent(s)---
+Opponent1 game state:
+hand count = 0, expected = 0
+deck count = 10, expected = 10
+coin count = 4, expected = 4
+
+---Checking that no game state change occured for victory card pile---
+Estate card count = 8, expected = 8
+Duchy card count = 8, expected = 8
+Province card count = 8, expected = 8
+
+---Checking that no game state change occured for kingdom card pile
+adventurer count = 10, expected = 10
+embargo count = 10, expected = 10
+village count = 10, expected = 10
+minion count = 10, expected = 10
+mine count = 10, expected = 10
+cutpurse count = 10, expected = 10
+sea_hag count = 10, expected = 10
+tribute count = 10, expected = 10
+smithy count = 10, expected = 10
+council_room count = 10, expected = 10
+
+
+ ----- SUCCESS: Testing complete smithy ------
+
+
+
+--------------------
+cardtest2.c 
+--------------------
+----------------Testing Card: adventurer---------------
+---Testing if two treasure cards were removed from deck---
+Teasure Cards In deck=1, expected = 1
+Test Passed
+Teasure Cards In hand = 6, expected = 6
+Test Passed
+
+---testing that all non-treasure revealed cards were put back in the discard pile---
+Non treasure revailed cards = 2
+Cards in discard/draw pile = 3, expected = 3
+Test Passed
+
+---Checking that no game state change occured for all 1 opponent(s)---
+Opponent1 game state:
+hand count = 0, expected = 0
+deck count = 10, expected = 10
+coin count = 4, expected = 4
+Test Passed: No game state change occured for other players
+
+---Checking that no game state change occured for victory card pile---
+Estate card count = 8, expected = 8
+Duchy card count = 8, expected = 8
+Province card count = 8, expected = 8
+Test Passed: No state change for victory card pile
+
+ ----- SUCCESS: Testing complete adventurer ------
+
+
+
+--------------------
+cardtest3.c 
+--------------------
+----------------Testing Card: great_hall---------------
+---Testing the the player drew one card---
+Cards in hand = 5, expected = 5
+Cards in deck = 4, expected = 4
+Test Passed
+
+---Testing that the player has an additional action---
+Number of actions = 2, expected = 2
+Test Passed
+
+---Checking that no game state change occured for all 1 opponent(s)---
+Opponent1 game state:
+hand count = 0, expected = 0
+deck count = 10, expected = 10
+coin count = 4, expected = 4
+Test passed for player 1
+
+---Checking that no game state change occured for victory card pile---
+Estate card count = 8, expected = 8
+Duchy card count = 8, expected = 8
+Province card count = 8, expected = 8
+Test Passed
+
+---Checking that no game state change occured for kingdom card pile
+adventurer count = 10, expected = 10
+embargo count = 10, expected = 10
+village count = 10, expected = 10
+minion count = 10, expected = 10
+mine count = 10, expected = 10
+cutpurse count = 10, expected = 10
+sea_hag count = 10, expected = 10
+tribute count = -1, expected = -1
+smithy count = 10, expected = 10
+council_room count = 10, expected = 10
+Test Passed
+
+ ----- SUCCESS: Testing complete great_hall ------
+
+
+
+--------------------
+cardtest4.c 
+--------------------
+----------------Testing Card: steward---------------
+Testing when player draws 2 cards: choice1  = 1 +2 cards
+hand count = 6, expected = 6
+deck count = 3, expected = 3
+coins = 4, expected = 4
+Test Passed
+
+
+TEST when player chooses to coins: choice1 = 2 = +2 coins
+hand count = 4, expected = 4
+deck count = 5, expected = 5
+coins = 6, expected = 6
+Test Passed
+
+---Test when player trashes to cards for all card combos---
+starting cards: (18)(4)(2)(1)(9); removed: (4)(2); ending cards: (9)(1), expected: (1)(9)
+hand count = 2, expected hand count = 2 ;deck count = 5, expected deck count = 5
+
+starting cards: (18)(4)(2)(1)(9); removed: (4)(1); ending cards: (2)(9), expected: (2)(9)
+hand count = 2, expected hand count = 2 ;deck count = 5, expected deck count = 5
+
+starting cards: (18)(4)(2)(1)(9); removed: (4)(9); ending cards: (2)(1), expected: (2)(1)
+hand count = 2, expected hand count = 2 ;deck count = 5, expected deck count = 5
+
+starting cards: (18)(4)(2)(1)(9); removed: (2)(1); ending cards: (9)(4), expected: (4)(9)
+hand count = 2, expected hand count = 2 ;deck count = 5, expected deck count = 5
+
+starting cards: (18)(4)(2)(1)(9); removed: (2)(9); ending cards: (1)(4), expected: (4)(1)
+hand count = 2, expected hand count = 2 ;deck count = 5, expected deck count = 5
+
+starting cards: (18)(4)(2)(1)(9); removed: (1)(9); ending cards: (2)(4), expected: (4)(2)
+hand count = 2, expected hand count = 2 ;deck count = 5, expected deck count = 5
+
+Test Passed
+
+---Checking that no game state change occured for all 1 opponent(s)---
+Opponent1 game state:
+hand count = 0, expected = 0
+deck count = 10, expected = 10
+coin count = 4, expected = 4
+Test passed for player 1
+
+---Checking that no game state change occured for victory card pile---
+Estate card count = 8, expected = 8
+Duchy card count = 8, expected = 8
+Province card count = 8, expected = 8
+Test Passed
+
+---Checking that no game state change occured for kingdom card pile
+adventurer count = 10, expected = 10
+embargo count = 10, expected = 10
+village count = 10, expected = 10
+minion count = 10, expected = 10
+mine count = 10, expected = 10
+cutpurse count = 10, expected = 10
+sea_hag count = 10, expected = 10
+tribute count = 10, expected = 10
+smithy count = 10, expected = 10
+council_room count = 10, expected = 10
+Test Passed
+
+ ----- SUCCESS: Testing complete steward ------
+
+
+
+-------Coverage Stats for each function:------
+Function 'updateCoins'
+Lines executed:81.82% of 11
+Branches executed:100.00% of 8
+Taken at least once:75.00% of 8
+No calls
+
+Function 'gainCard'
+Lines executed:61.54% of 13
+Branches executed:100.00% of 6
+Taken at least once:50.00% of 6
+Calls executed:100.00% of 1
+
+Function 'discardCard'
+Lines executed:92.31% of 13
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+No calls
+
+Function 'cardEffect'
+Lines executed:14.61% of 178
+Branches executed:18.37% of 147
+Taken at least once:6.12% of 147
+Calls executed:20.41% of 49
+
+Function 'baronCardEffect'
+Lines executed:75.00% of 28
+Branches executed:77.78% of 18
+Taken at least once:61.11% of 18
+Calls executed:37.50% of 8
+
+Function 'mineCardEffect'
+Lines executed:38.89% of 18
+Branches executed:14.29% of 14
+Taken at least once:7.14% of 14
+Calls executed:0.00% of 5
+
+Function 'smithyCardEffect'
+Lines executed:100.00% of 5
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 2
+
+Function 'councilRoomCardEffect'
+Lines executed:100.00% of 9
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+Calls executed:100.00% of 3
+
+Function 'adventureCardEffect'
+Lines executed:60.00% of 15
+Branches executed:66.67% of 12
+Taken at least once:41.67% of 12
+Calls executed:50.00% of 2
+
+Function 'getCost'
+Lines executed:0.00% of 30
+Branches executed:0.00% of 28
+Taken at least once:0.00% of 28
+No calls
+
+Function 'drawCard'
+Lines executed:36.36% of 22
+Branches executed:33.33% of 6
+Taken at least once:16.67% of 6
+Calls executed:0.00% of 1
+
+Function 'getWinners'
+Lines executed:0.00% of 24
+Branches executed:0.00% of 22
+Taken at least once:0.00% of 22
+Calls executed:0.00% of 2
+
+Function 'scoreFor'
+Lines executed:0.00% of 24
+Branches executed:0.00% of 42
+Taken at least once:0.00% of 42
+Calls executed:0.00% of 3
+
+Function 'isGameOver'
+Lines executed:0.00% of 10
+Branches executed:0.00% of 8
+Taken at least once:0.00% of 8
+No calls
+
+Function 'endTurn'
+Lines executed:0.00% of 20
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+Calls executed:0.00% of 3
+
+Function 'whoseTurn'
+Lines executed:100.00% of 2
+No branches
+No calls
+
+Function 'fullDeckCount'
+Lines executed:0.00% of 9
+Branches executed:0.00% of 12
+Taken at least once:0.00% of 12
+No calls
+
+Function 'supplyCount'
+Lines executed:100.00% of 2
+No branches
+No calls
+
+Function 'handCard'
+Lines executed:0.00% of 3
+No branches
+Calls executed:0.00% of 1
+
+Function 'numHandCards'
+Lines executed:0.00% of 2
+No branches
+Calls executed:0.00% of 1
+
+Function 'buyCard'
+Lines executed:0.00% of 13
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+Calls executed:0.00% of 4
+
+Function 'playCard'
+Lines executed:0.00% of 14
+Branches executed:0.00% of 10
+Taken at least once:0.00% of 10
+Calls executed:0.00% of 3
+
+Function 'shuffle'
+Lines executed:93.75% of 16
+Branches executed:100.00% of 8
+Taken at least once:87.50% of 8
+Calls executed:100.00% of 2
+
+Function 'initializeGame'
+Lines executed:83.87% of 62
+Branches executed:95.65% of 46
+Taken at least once:78.26% of 46
+Calls executed:100.00% of 5
+
+Function 'kingdomCards'
+Lines executed:0.00% of 13
+No branches
+No calls
+
+Function 'newGame'
+Lines executed:0.00% of 3
+No branches
+No calls
+
+Function 'compare'
+Lines executed:83.33% of 6
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+No calls
+
+File 'dominion.c'
+Lines executed:33.63% of 565
+Branches executed:32.85% of 417
+Taken at least once:22.78% of 417
+Calls executed:28.42% of 95
+Creating 'dominion.c.gcov'
+
